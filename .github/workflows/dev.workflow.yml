@@ -15,3 +15,5 @@ jobs:
 
       - name: clang-tidy-action
         uses: asarium/clang-tidy-action@v1.0
+        with:
+          fixesFile: fixes.yaml 
