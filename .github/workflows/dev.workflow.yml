@@ -1,0 +1,19 @@
+name: Dev - testing/linting
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  clang:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: clang-format Check (with custom .clang-format file)
+        uses: mrousavy/clang-format-action@v1
+
+      - name: clang-tidy-action
+        uses: asarium/clang-tidy-action@v1.0
+        with:
+          fixesFile: fixes.yaml 

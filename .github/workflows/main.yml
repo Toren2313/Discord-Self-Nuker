@@ -1,0 +1,31 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  clang:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: clang-format Check (with custom .clang-format file)
+        uses: mrousavy/clang-format-action@v1
+
+      - name: clang-tidy-action
+        uses: asarium/clang-tidy-action@v1.0
+        with:
+          fixesFile: fixes.yaml
+
+  build:
+    needs: clang
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Build the project
+        run: |
+            mkdir build
+            cd build
+            cmake ..
+            cmake --build . --target clang-tidy
