@@ -2,10 +2,10 @@
 #include "./viewModels/menu/menu.h"
 
 int main() {
-    SelfMenu *menu = new SelfMenu();
+  auto *menu = new SelfMenu();
 
-    menu->init();
+  menu->init();
 
-    delete menu;
-    return 0;
+  delete menu;
+  return 0;
 }
