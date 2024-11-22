@@ -13,7 +13,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: clang-format Check (with custom .clang-format file)
+      - name: Verify .clang-format
+        run: ls -la .clang-format
+
+      - name: clang-format Check
         uses: mrousavy/clang-format-action@v1
 
       - name: clang-tidy-action
