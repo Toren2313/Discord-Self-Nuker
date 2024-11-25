@@ -23,9 +23,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Build the project
-        run: |
-            mkdir build
-            cd build
-            cmake ..
-            cmake --build .
+    - name: Build Project
+      uses: threeal/cmake-action@v2.0.0
+      with:
+        source-dir: source
+        build-dir: output
